@@ -4,12 +4,28 @@
  * We’ll use this function in the game to make the computer’s play. 
 Tip: use the console to make sure this is returning the expected output before moving to the next step!*/ 
 
-function getComputerChoice {
+function getComputerChoice() {
+    // randomonly generate a number between 1 and 3
+let randomNumber = Math.floor(Math.random() * 3) + 1;
+console.log(randomNumber);
+
+// assign each number to either rock, paper, or scissors
+let computerChoice = "";
+if (randomNumber===1){
+    computerChoice="rock"
+} else if (randomNumber===2) {
+    computerChoice="paper"
+} else {
+    computerChoice="scissors"
+}
+
     return computerChoice;
 }
 
-// randomonly generate a number between 1 and 3
-// assign each number to either rock, paper, or scissors
+//test function
+console.log(getComputerChoice());
+
+
 
 /**Write a function that plays a single round of Rock Paper Scissors. 
  * The function should take two parameters - the playerSelection and computerSelection - 
@@ -29,9 +45,9 @@ function playRound(playerSelection, computerSelection) {
 
   //test function
    
-  const playerSelection = "rock";
-  const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
+ // const playerSelection = "rock";
+ // const computerSelection = getComputerChoice();
+//  console.log(playRound(playerSelection, computerSelection));
 
 
 /**Important note: you want to return the results of this function call, not console.log() them. 
