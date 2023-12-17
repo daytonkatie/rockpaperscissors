@@ -7,7 +7,6 @@ Tip: use the console to make sure this is returning the expected output before m
 function getComputerChoice() {
     // randomonly generate a number between 1 and 3
 let randomNumber = Math.floor(Math.random() * 3) + 1;
-console.log(randomNumber);
 
 // assign each number to either rock, paper, or scissors
 let computerChoice = "";
@@ -22,32 +21,73 @@ if (randomNumber===1){
     return computerChoice;
 }
 
-//test function
-console.log(getComputerChoice());
+//Create a function to get the players selection
+//Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or 
+//any other variation).
 
-
+function getPlayerChoice(){
+let playerChoice = prompt("Enter rock, paper, or scissors","");
+return playerChoice.toLowerCase();
+}
 
 /**Write a function that plays a single round of Rock Paper Scissors. 
  * The function should take two parameters - the playerSelection and computerSelection - 
  * and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
-Account for TIES by re-playing the round. */
+ */
 
+   //create series of if/then statements; first if will check for a TIE then rerun the same function.
+    //display results of the round to the user
+    //return 0 if the computer lost and 1 if the computer won;
 
 
 function playRound(playerSelection, computerSelection) {
-    //ask for the playerSelection. Use prompt() to get input from the user. 
-    //change the playerSelection to lowercase
-    //create series of if/then statements; first if will check for a TIE then return the same function?
-    //display results of the round to the user
-    //return 0 if the computer lost and 1 if the computer won;
+    let computerScore = 0;
+
+    //Account for TIES by re-playing the round.
+if (playerSelection === computerSelection){
+    console.log("TIE");
+    return playRound(getPlayerChoice(),getComputerChoice());
+} else if (playerSelection ==="rock" && computerSelection ==="paper"){
+    console.log("You Lose! Paper beats Rock");
+    computerScore = 1;
+    return computerScore;
+} else if (playerSelection ==="paper" && computerSelection ==="scissors"){
+    console.log("You Lose! Scissors beats Paper");
+    computerScore = 1;
+    return computerScore;
+} else if (playerSelection ==="scissors" && computerSelection ==="rock"){
+    console.log("You Lose! Rock beats Scissors");
+    computerScore = 1;
+    return computerScore;
+} else if (playerSelection ==="paper" && computerSelection ==="rock"){
+    console.log("You Win! Paper beats Rock");
+    computerScore = 0;
+    return computerScore;
+} else if (playerSelection ==="scissors" && computerSelection ==="paper"){
+    console.log("You Win! Scissors beats Paper");
+    computerScore = 0;
+    return computerScore;
+} else if (playerSelection ==="rock" && computerSelection ==="scissors"){
+    console.log("You Win! Rock beats Scissors");
+    computerScore = 0;
+    return computerScore;
+}
+    
+ 
   }
+
+ //playRound(getPlayerChoice(),getComputerChoice());
+ //console.log(computerScore);
+
+
+
+ 
 
   //test function
    
- // const playerSelection = "rock";
- // const computerSelection = getComputerChoice();
-//  console.log(playRound(playerSelection, computerSelection));
+  const playerSelection = "rock";
+  const computerSelection = getComputerChoice();
+  console.log(playRound(playerSelection, computerSelection));
 
 
 /**Important note: you want to return the results of this function call, not console.log() them. 
