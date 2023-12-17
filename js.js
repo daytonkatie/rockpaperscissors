@@ -76,18 +76,13 @@ if (playerSelection === computerSelection){
  
   }
 
+   //test function
+
  //playRound(getPlayerChoice(),getComputerChoice());
- //console.log(computerScore);
-
-
-
- 
-
-  //test function
-   
-  const playerSelection = "rock";
-  const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
+ //console.log(computerScore); 
+  //const playerSelection = "rock";
+  //const computerSelection = getComputerChoice();
+  //console.log(playRound(playerSelection, computerSelection));
 
 
 /**Important note: you want to return the results of this function call, not console.log() them. 
@@ -107,4 +102,31 @@ Feel free to create more “helper” functions if you think it would be useful.
 //each time the playRound function will display the result of the round.
 //at the end, the function would sum the return values of each playRound function and if the value is greater than 2
 //, report to the user that the computer has won the game and vis versa.
+
+function game(){
+
+    let score = 0;
+    
+    let round1 = playRound(getPlayerChoice(),getComputerChoice());
+    console.log(`Your score: ${1-round1}. Computer's score: ${round1}`);
+    let round2 = playRound(getPlayerChoice(),getComputerChoice());
+    console.log(`Your score: ${2-(round1 + round2)}. Computer's score: ${round1 + round2}`);
+    let round3 = playRound(getPlayerChoice(),getComputerChoice());
+    console.log(`Your score: ${3-(round1 + round2 + round3)}. Computer's score: ${round1 + round2 + round3}`);
+    let round4 = playRound(getPlayerChoice(),getComputerChoice());
+    console.log(`Your score: ${4-(round1 + round2 + round3 + round4)}. Computer's score: ${round1 + round2 + round3 + round4}`);
+    let round5 = playRound(getPlayerChoice(),getComputerChoice());
+    console.log(`Your score: ${5-(round1 + round2 + round3 + round4 + round5)}. Computer's score: ${round1 + round2 + round3 + round4 + round5}`);
+
+    score = round1 + round2 + round3 + round4 + round5;
+
+    if (score > 2){
+        console.log("You lose the game. Try again!");
+    } else {
+        console.log("You win the game!");
+    }
+  
+}
+
+
 
